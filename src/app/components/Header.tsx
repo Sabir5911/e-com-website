@@ -39,8 +39,8 @@ export default function Header() {
               {/* ?? */}
             </div>
 
-            <div>
-              <span className=" relative float-right  rounded-md text-white bg-red-500 text-xl top-0">{counterTable}</span>
+            <div >
+              <span className=" w-5 h-5 float-right  rounded-md text-white bg-red-500 text-sm flex justify-center items-center">{counterTable}</span>
               <Image
                 src={shop}
                 alt="image"
