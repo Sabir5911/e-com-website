@@ -21,7 +21,7 @@ const Quantity = () => {
         -
       </button>
       {/* Number */}
-      <span className="text-sm">{counterTable}</span>
+      <span className="text-sm">{counterTable+1}</span>
       {/* Plus */}
       <button
         className="w-8 h-8 border rounded-full center text-2xl"

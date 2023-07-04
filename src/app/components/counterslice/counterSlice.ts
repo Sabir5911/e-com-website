@@ -1,7 +1,5 @@
 'use client'
 import { createSlice } from '@reduxjs/toolkit'
-import type { PayloadAction } from '@reduxjs/toolkit'
-
 export interface CounterState {
   totalvalue: number
   products:[]
@@ -23,11 +21,10 @@ export const counterSlice = createSlice({
   initialState,
   reducers: {
     increment: (state) => {
-      state.value += 1
-
+      state.value +=1
     },
     decrement: (state) => {
-        if(state.value==0){
+        if(state.value<=0){
             state.value = 1
 
         }
@@ -35,18 +32,17 @@ export const counterSlice = createSlice({
       
     },
 
-    Addtocart: (state,action) => {  
-state.totalquantity=state.value
-state.totalquantity+=action.payload.quantity;      
+    Addtocart: (state,action) => { 
+   state.totalquantity+=state.value
+   state.totalquantity+=action.payload.quantity;   
+
+
+
     },
     removefromcart: (state,action) => {
-      state.totalquantity=state.value
 
-      state.totalquantity+=action.payload.quantity;      
+      state.totalquantity-=action.payload.quantity;      
 
-    },
-    clearall: (state, action: PayloadAction<number>) => {
-      state=initialState
     },
   },
 })
