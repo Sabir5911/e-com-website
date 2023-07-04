@@ -4,7 +4,7 @@ import logo from '../../../public/assets/Logo.jpg'
 import serch from '../../../public/assets/serch.png'
 import shop1 from '../../../public/assets/shop1.svg'
 import Wrapper from '../shared/Wrapper'
-import Button from '../shared/Button'
+// import Button from '../shared/Button'
 import girl from '../../../public/assets/girl.jpg'
 import s from '../../../public/assets/s.webp'
  import bust from '../../../public/assets/bust.webp'
@@ -20,7 +20,7 @@ export default function Hero() {
         <div className='flex justify-around items-center'>
           <div className='flex flex-col justify-center  '>
             <div>
-              <Button Text='Sale 70%' />
+              {/* <Button Text='Sale 70%' /> */}
             </div>
             <div className='mt-8  max-w-lg'>
               <h1 className='text-6xl font-bold mt-3 '>

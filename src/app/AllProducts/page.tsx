@@ -7,11 +7,13 @@ import Wrapper from '../shared/Wrapper';
 
 export interface PRODUCTS{
   image:IIMAGE,
-  discription:string,
   price:string,
   name:string
   category:string
   title:string
+  slug:{
+    current:string
+  }
 } 
 const productCategory=async (category:string)=>{
 

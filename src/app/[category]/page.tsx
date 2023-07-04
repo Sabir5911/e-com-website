@@ -38,7 +38,7 @@ export default async function page({params}:{params:{category:string}}) {
   <div className='flex flex-wrap justify-around items-center '>
 {
   result.map((elm)=>(
-    <Link href={`/Products/${elm.slug.current}`}>
+    <Link href={{pathname:`/products/${elm.slug.current}`}}>
 <div className="mt-28">
         <Image src={urlForImage(elm.image).url()} width={400} height={400}alt='sa'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>

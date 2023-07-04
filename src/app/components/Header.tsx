@@ -1,12 +1,16 @@
-import React from "react";
+'use client'
 import Image from "next/image";
+import { useSelector, useDispatch } from 'react-redux'
+import { RootState } from '../store/store'
 import logo from "../../../public/assets/Logo.jpg";
 import serch from "../../../public/assets/serch.png";
 import shop from "../../../public/assets/shop.png";
 import Wrapper from "../shared/Wrapper";
 import Link from "next/link";
-
 export default function Header() {
+  const counterTable=useSelector((state:RootState) => state.counterSlice.totalquantity)
+
+    
   return (
     <>
       <Wrapper>
@@ -34,11 +38,13 @@ export default function Header() {
 
               {/* ?? */}
             </div>
+
             <div>
+              <span className=" relative float-right  rounded-md text-white bg-red-500 text-xl top-0">{counterTable}</span>
               <Image
                 src={shop}
                 alt="image"
-                width={35}
+                width={35}   
                 height={35}
                 className="hover:scale-105 duration-300  "
               />
