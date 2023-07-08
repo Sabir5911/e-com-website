@@ -2,26 +2,24 @@ import { client } from "../../../../sanity/lib/client";
 import { urlForImage } from "../../../../sanity/lib/image";
 import { Button } from "../../shared/Button";
 import Image from "next/image";
-import { PRODUCTS } from "@/app/[category]/page";
-import Quantity from "@/app/components/quantity/Quantity";
+import { PRODUCTS } from "@/app/AllProducts/page";
 const FetchData = async (slug: string) => {
   const data = await client.fetch(
     `*[_type=='product' && slug.current=='${slug}']`
   );
   return data;
 };
-export default async function PRODUCTSDETAILS({
+export default async function PRODUCTSDETAILS({   
   params,
 }: {
   params: { slug: string };
 }) {
   const res: PRODUCTS[] = await FetchData(params.slug);
-  console.log(res);
 
   return (
     <div>
-      {res.map((elm: PRODUCTS) => (
-        <div className="mt-12 flex gap-x-11 justify-center ">
+      {res.map((elm: PRODUCTS,i) => (
+        <div className="mt-12 flex gap-x-11 justify-center " key={elm._id}>
           {/* ////////////// */}
           <div>
             <Image
@@ -44,7 +42,7 @@ export default async function PRODUCTSDETAILS({
               <text className="text-xl font-semibold">SELECT SIZE</text>
               <div className="flex gap-x-14 text-2xl mt-5 font-semibold text-[#666]">
                 {["XS", "S", "M", "L", "XL"].map((elm) => (
-                  <div className="rounded-full  hover: bg-slate-100scale-105  duration-300 shadow-2xl cursor-pointer">
+                  <div className="w-10 h-10 flex justify-center items-center rounded-full  hover:bg-slate-500 scale-105  duration-300 shadow-2xl cursor-pointer ">
                     {elm}
                   </div>
                 ))}
@@ -54,14 +52,14 @@ export default async function PRODUCTSDETAILS({
 
             <div className="flex gap-x-10 justify-center items-center mt-16">
               <h1 className="text-xl font-semibold ">QUANTITY :</h1>
-              <Quantity />
+              {/* <Quantity /> */}
             </div>
             <div className="mt-5 flex gap-x-10">
               <Button Text="ADD TO CART" />
               <text className="text-3xl font-bold">{`$  ${elm.price}`}</text>
             </div>
           </div>
-        </div>
+        </div>           
       ))}
     </div>
   );

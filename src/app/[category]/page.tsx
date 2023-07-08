@@ -5,18 +5,7 @@ import { urlForImage } from '../../../sanity/lib/image';
 import { Image as IIMAGE } from 'sanity';
 import Image from 'next/image';
 import Wrapper from '../shared/Wrapper';
-
-export interface PRODUCTS{
-  image:IIMAGE,
-  discription:string,
-  price:string,
-  name:string
-  category:string
-  title:string
-  slug:{
-    current:string
-  }
-} 
+import { PRODUCTS } from '../AllProducts/page';
 const productCategory=async (category:string)=>{
 
   const res:PRODUCTS[]=await client.fetch(`*[_type=='product'&& category->name==$category]`,{
@@ -24,9 +13,7 @@ const productCategory=async (category:string)=>{
   })  
   
 return(res) 
-
 }
-
 export default async function page({params}:{params:{category:string}}) {
 
   const result:PRODUCTS[]= await productCategory(params.category)
@@ -37,9 +24,9 @@ export default async function page({params}:{params:{category:string}}) {
 
   <div className='flex flex-wrap justify-around items-center '>
 {
-  result.map((elm)=>(
+  result.map((elm,i)=>(
     <Link href={{pathname:`/products/${elm.slug.current}`}}>
-<div className="mt-28">
+<div className="mt-28" key={elm._id}>
         <Image src={urlForImage(elm.image).url()} width={400} height={400}alt='sa'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>
         <span className="text-lg font-semibold text-gray-400">
@@ -49,10 +36,9 @@ export default async function page({params}:{params:{category:string}}) {
       
       </div>
       </Link>
-
-  ))
+       ))
 }
-    </div>
+</div>
     </Wrapper>
 
   </>

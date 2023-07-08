@@ -4,7 +4,7 @@ export const product=defineType(
 
         name:"product",
         type:"document",
-        title:"product",
+        title:"Product",
         fields:[
             defineField({
                 name:"name",

@@ -1,24 +1,32 @@
-'use client'
+"use client";
+
 import Image from "next/image";
-import { useSelector, useDispatch } from 'react-redux'
-import { RootState } from '../store/store'
+import { useSelector, useDispatch } from "react-redux";
 import logo from "../../../public/assets/Logo.jpg";
 import serch from "../../../public/assets/serch.png";
 import shop from "../../../public/assets/shop.png";
 import Wrapper from "../shared/Wrapper";
 import Link from "next/link";
+import { RootState } from "./counterslice/store";
 export default function Header() {
-  const counterTable=useSelector((state:RootState) => state.counterSlice.totalquantity)
+  const counterTable = useSelector(
+    (state: RootState) => state.cartSlice.totalQuantity
+  );
+  console.log(counterTable);
 
-    
   return (
     <>
       <Wrapper>
         <main className="mt-12">
           <div className="flex justify-evenly items-center ">
-            <Link href={'/'}>
-            <Image src={logo} alt="image" width={150} height={150} className="cursor-pointer"/>
-
+            <Link href={"/"}>
+              <Image
+                src={logo}
+                alt="image"
+                width={150}
+                height={150}
+                className="cursor-pointer"
+              />
             </Link>
             <ul className="flex justify-center items-center text-lg gap-x-12 font-medium">
               <Link href={"/Female"}>Female</Link>
@@ -38,16 +46,19 @@ export default function Header() {
 
               {/* ?? */}
             </div>
-
-            <div >
-              <span className=" w-5 h-5 float-right  rounded-md text-white bg-red-500 text-sm flex justify-center items-center">{counterTable}</span>
-              <Image
-                src={shop}
-                alt="image"
-                width={35}   
-                height={35}
-                className="hover:scale-105 duration-300  "
-              />
+            <div>
+              <span className=" w-5 h-5 float-right  rounded-md text-white bg-red-500 text-sm flex justify-center items-center">
+                {counterTable}
+              </span>
+              <Link href={"/cart"}>
+                <Image
+                  src={shop}
+                  alt="image"
+                  width={35}
+                  height={35}
+                  className="hover:scale-105 duration-300  "
+                />
+              </Link>
             </div>
           </div>
         </main>

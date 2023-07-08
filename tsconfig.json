@@ -23,6 +23,6 @@
       "@/*": ["./src/*"]
     }
   },
-  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/[name]/page.tsx"],
+  "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts", "src/app/[name]/page.tsx", "src/app/components/counterslice/Basket.ts", "src/app/components/counterslice/cart.ts"],
   "exclude": ["node_modules"]
 }

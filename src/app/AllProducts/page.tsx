@@ -13,7 +13,8 @@ export interface PRODUCTS{
   title:string
   slug:{
     current:string
-  }
+  }  
+  _id:string
 } 
 const productCategory=async (category:string)=>{
 
@@ -33,8 +34,8 @@ export default async function page({params}:{params:{category:string}}) {
 
   <div className='flex flex-wrap justify-around items-center '>
 {
-  result.map((elm)=>(
-<div className="mt-28">
+  result.map((elm,i)=>(
+<div className="mt-28" key={elm._id}>
         <Image src={urlForImage(elm.image).url()} width={400} height={400}alt='sa'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>
         <span className="text-lg font-semibold text-gray-400">
