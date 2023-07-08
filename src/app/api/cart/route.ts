@@ -1,7 +1,5 @@
 
-import { error } from "console";
 import { NextRequest,NextResponse} from "next/server";
-import { client } from "../../../../sanity/lib/client";
 import {db,usercarts} from '../../lib/drizzel'
 import {v4} from "uuid"
 import { cookies } from "next/dist/client/components/headers";
