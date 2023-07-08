@@ -1,18 +1,13 @@
-"use client";
 
 import Image from "next/image";
-import { useSelector, useDispatch } from "react-redux";
+
 import logo from "../../../public/assets/Logo.jpg";
 import serch from "../../../public/assets/serch.png";
 import shop from "../../../public/assets/shop.png";
 import Wrapper from "../shared/Wrapper";
 import Link from "next/link";
-import { RootState } from "./counterslice/store";
 export default function Header() {
-  const counterTable = useSelector(
-    (state: RootState) => state.cartSlice.totalQuantity
-  );
-  console.log(counterTable);
+
 
   return (
     <>
@@ -48,7 +43,7 @@ export default function Header() {
             </div>
             <div>
               <span className=" w-5 h-5 float-right  rounded-md text-white bg-red-500 text-sm flex justify-center items-center">
-                {counterTable}
+                {}
               </span>
               <Link href={"/cart"}>
                 <Image

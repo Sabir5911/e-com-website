@@ -4,6 +4,7 @@ import { urlForImage } from '../../../sanity/lib/image';
 import { Image as IIMAGE } from 'sanity';
 import Image from 'next/image';
 import Wrapper from '../shared/Wrapper';
+import Link from 'next/link';
 
 export interface PRODUCTS{
   image:IIMAGE,
@@ -27,14 +28,16 @@ return(res)
 export default async function page({params}:{params:{category:string}}) {
 
   const result:PRODUCTS[]= await productCategory(params.category)
-  console.log(result);   
   
   return <>
   <Wrapper>
 
   <div className='flex flex-wrap justify-around items-center '>
+
 {
-  result.map((elm,i)=>(
+
+  result.map((elm)=>(
+    <Link href={{pathname:`/products/${elm.slug.current}`}}>
 <div className="mt-28" key={elm._id}>
         <Image src={urlForImage(elm.image).url()} width={400} height={400}alt='sa'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>
@@ -44,7 +47,7 @@ export default async function page({params}:{params:{category:string}}) {
         <p className="font-bold text-lg">${elm.price}</p>
           
       </div>
-    
+      </Link>
   ))
 }
     </div>
