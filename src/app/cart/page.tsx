@@ -2,20 +2,40 @@ import React from 'react'
 import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
+const BASE_URL =
+  process.env.NODE_ENV == "development"
+    ? "http://localhost:3000"
+    : "ecom-59111.vercel.app"    ;
+
 
 
 const getData=async() =>{
+  
   try {
-    const data = await fetch(`http:127.0.0.1:3000/api/cart`, {
+    const res = await fetch(`${BASE_URL}/api/cart`, {
       method:"GET",
       cache: "no-store",
 
     });
-   
-    return await data.json();
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return await res.json();
   } catch (error) {
     console.log((error as { message: string }).message);
   }
+
+  // try {
+  //   const data = await fetch(`http:127.0.0.1:3000/api/cart`, {
+  //     method:"GET",
+  //     cache: "no-store",
+
+  //   });
+   
+  //   return await data.json();
+  // } catch (error) {
+  //   console.log((error as { message: string }).message);
+  // }
 }
 export default async function page() {
 
