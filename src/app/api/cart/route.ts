@@ -1,4 +1,3 @@
-
 import { NextRequest,NextResponse} from "next/server";
 import {db,usercarts} from '../../lib/drizzel'
 import {v4} from "uuid"
@@ -6,7 +5,6 @@ import { eq } from "drizzle-orm";
 import { cookies } from "next/dist/client/components/headers";
 
 export async function GET(request:NextRequest){      
-
 
 try{
     const res=await db.select().from(usercarts)

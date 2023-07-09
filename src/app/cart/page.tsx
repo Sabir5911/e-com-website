@@ -1,15 +1,18 @@
+'use client'
 import React from 'react'
 import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
 import { cookies } from "next/dist/client/components/headers";
+import { useRouter } from "next/navigation";
+
 const BASE_URL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:3000"
     : "https://ecom-59111.vercel.app";
     
 const getData=async() =>{
-  
+
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
       headers:{
@@ -31,9 +34,11 @@ const getData=async() =>{
 
 }
 export default async function page() {
+  const {refresh}=useRouter()
 
     const data:cart[]=await getData()    
     const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)    
+    refresh()
   return <>
   <Wrapper>
   <div className='mt-28'>    
