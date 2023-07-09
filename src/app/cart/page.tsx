@@ -2,23 +2,41 @@ import React from 'react'
 import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
-const handleOrder=async()=>{
-try{
-    const res=await fetch("http:127.0.0.1:3000/api/cart",{
-        method:"GET",  
-        cache: "no-store",     
-    })
-const result=await res.json()
-    return result
-}catch(err){
-console.log(err);
-}
+// const handleOrder=async()=>{
+// try{
+//     const res=await fetch("http:127.0.0.1:3000/api/cart",{
+//         method:"GET",  
+//         cache: "no-store",     
+//     })
+// const result=await res.json()
+//     return result
+// }catch(err){
+// console.log(err);
+// }
     
-}
+// }
+const BASE_URL =
+  process.env.NODE_ENV == "development"
+    ? "http://localhost:3000"
+    : "http://localhost:3000";
 
+
+export async function getData() {
+  try {
+    const res = await fetch(`${BASE_URL}/api/cart`, {
+      cache: "no-store",
+    });
+    if (!res.ok) {
+      throw new Error("Failed to fetch data");
+    }
+    return await res.json();
+  } catch (error) {
+    console.log((error as { message: string }).message);
+  }
+}
 export default async function page() {
 
-    const data:{res:cart[]}=await handleOrder()
+    const data:{res:cart[]}=await getData()
     console.log(data);
         
   return <>
