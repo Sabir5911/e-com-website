@@ -11,7 +11,6 @@ const result=await res.json()
     return result
 }catch(err){
 console.log(err);
-
 }
     
 }
