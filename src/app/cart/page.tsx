@@ -2,11 +2,19 @@ import React from 'react'
 import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
+const BASE_URL =
+  process.env.NODE_ENV == "development"
+    ? "http://localhost:3000"
+    : "https://ecom-59111.vercel.app";
+
 
 const getData=async() =>{
   
   try {
-    const res = await fetch(`http:127.0.0.1:3000/api/cart`, {
+    const res = await fetch(`${BASE_URL}/api/cart`, {
+      headers:{
+        "Content-type":"application/json"
+      },
       method:"GET",
       cache: "no-store",
 
@@ -34,6 +42,8 @@ const getData=async() =>{
 export default async function page() {
 
     const data:cart[]=await getData()
+    console.log(data);
+    console.log(data);
     console.log(data);
         
   return <>
