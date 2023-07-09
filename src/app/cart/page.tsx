@@ -2,7 +2,7 @@ import React from 'react'
 import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
-const handlepost=async()=>{
+const handleOrder=async()=>{
 try{
     const res=await fetch("http:127.0.0.1:3000/api/cart",{
         method:"GET",  
@@ -17,7 +17,7 @@ console.log(err);
 
 export default async function page() {
 
-    const data:{res:cart[]}=await handlepost()
+    const data:{res:cart[]}=await handleOrder()
     console.log(data);
         
   return <>

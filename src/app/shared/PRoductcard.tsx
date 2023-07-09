@@ -27,6 +27,10 @@ console.log(Quantity);
   const decrement=()=>{
     
     setQuantity(Quantity-1)
+
+    if(Quantity<1){
+      setQuantity(1)
+    }
   }
 
 
