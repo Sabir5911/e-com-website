@@ -7,7 +7,7 @@ export async function GET(request:NextRequest){
 
 try{
     const res=await db.select().from(usercarts)
-    return NextResponse.json({res})
+    return NextResponse.json(res)
 }catch(err){
     return new Response("some thing went wrong in ")       
 }

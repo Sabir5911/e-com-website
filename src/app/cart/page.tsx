@@ -6,7 +6,7 @@ import Wrapper from '../shared/Wrapper'
 const BASE_URL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:3000"
-    : "e-com-website-seven.vercel.app ";
+    : "e-com-website-seven.vercel.app";
 
 
 const getData=async() =>{
@@ -14,9 +14,7 @@ const getData=async() =>{
     const data = await fetch(`${BASE_URL}/api/cart`, {
       cache: "no-store",
     });
-    if (!data.ok) {
-      throw new Error("Failed to fetch data");
-    }
+   
     return await data.json();
   } catch (error) {
     console.log((error as { message: string }).message);
@@ -24,7 +22,7 @@ const getData=async() =>{
 }
 export default async function page() {
 
-    const data:{res:cart[]}=await getData()
+    const data:cart[]=await getData()
     console.log(data);
         
   return <>
@@ -33,7 +31,7 @@ export default async function page() {
 
 <h1 className='text-3xl  font-bold pb-10'>Shopping Cart </h1>
     {
-        data.res.map((elm)=>(
+        data.map((elm)=>(
             <div  className='flex gap-x-11 justify-start items-center'>
                 {/* ////////////// */}
              <div> 
