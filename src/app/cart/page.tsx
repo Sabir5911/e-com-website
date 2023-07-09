@@ -11,13 +11,13 @@ const BASE_URL =
 
 const getData=async() =>{
   try {
-    const res = await fetch(`${BASE_URL}/api/cart`, {
+    const data = await fetch(`${BASE_URL}/api/cart`, {
       cache: "no-store",
     });
-    if (!res.ok) {
+    if (!data.ok) {
       throw new Error("Failed to fetch data");
     }
-    return await res.json();
+    return await data.json();
   } catch (error) {
     console.log((error as { message: string }).message);
   }
