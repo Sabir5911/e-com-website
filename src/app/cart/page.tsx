@@ -6,7 +6,7 @@ import Wrapper from '../shared/Wrapper'
 const BASE_URL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:3000"
-    : "http://localhost:3000";
+    : "e-com-website-seven.vercel.app ";
 
 
 const getData=async() =>{
