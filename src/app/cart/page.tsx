@@ -6,6 +6,7 @@ const handleOrder=async()=>{
 try{
     const res=await fetch("http:127.0.0.1:3000/api/cart",{
         method:"GET",  
+        cache: "no-store",     
     })
 const result=await res.json()
     return result
@@ -26,7 +27,7 @@ export default async function page() {
 
 <h1 className='text-3xl  font-bold pb-10'>Shopping Cart </h1>
     {
-        data.res.map ((elm)=>(
+        data.res.map((elm)=>(
             <div  className='flex gap-x-11 justify-start items-center'>
                 {/* ////////////// */}
              <div> 

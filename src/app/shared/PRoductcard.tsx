@@ -8,6 +8,13 @@ export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
   const [Quantity, setQuantity] = useState(1);
 
   const [Size, setSize] = useState("XS");
+  const [color, setcolor] = useState(true);
+
+  const clickhandle=()=>{
+    setcolor(!color)
+  }
+console.log(color);
+
   console.log(Size);
 
   const handleSize = (size: string) => {
@@ -65,8 +72,8 @@ export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
           <div className="flex gap-x-14 text-2xl mt-5 font-semibold text-[#666]">
             {["XS", "S", "M", "L", "XL"].map((elm) => (
               <div
-                onClick={() => handleSize(elm)}
-                className="w-10 h-10 flex justify-center items-center rounded-full  hover:bg-slate-500 scale-105  duration-300 shadow-2xl cursor-pointer "
+                onClick={() => handleSize(elm)}  onChange={clickhandle}
+                className={`w-10 h-10 flex justify-center items-center rounded-full  ${color===true?"bg-slate-300":""}  duration-300 shadow-2xl cursor-pointer`} 
               >
                 {elm}
               </div>
