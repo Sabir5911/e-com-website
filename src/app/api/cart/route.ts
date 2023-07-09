@@ -9,10 +9,10 @@ try{
     const res=await db.select().from(usercarts)
     return NextResponse.json({res})
 }catch(err){
-    return new Response("some thing went wrong ")       
+    return new Response("some thing went wrong in ")       
 }
 }
-export async function POST(request:NextRequest){  
+export async function POST(request:NextRequest){   
     const req =await request.json()
      const idgenerate=v4()
     const setcookey=cookies()
