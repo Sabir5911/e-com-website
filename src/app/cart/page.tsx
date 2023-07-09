@@ -11,6 +11,8 @@ const BASE_URL =
     : "https://ecom-59111.vercel.app";
     
 const getData=async() =>{
+  const {refresh}=useRouter()
+
 
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
@@ -26,6 +28,8 @@ const getData=async() =>{
     }
   const result= await res.json();
   return result
+  refresh()
+
   } catch (error) {
     console.log((error as { message: string }).message);
   }
@@ -33,11 +37,9 @@ const getData=async() =>{
 
 }
 export default async function page() {
-  const {refresh}=useRouter()
 
     const data:cart[]=await getData()    
     const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)    
-    refresh()
   return <>
   <Wrapper>
   <div className='mt-28'>    
