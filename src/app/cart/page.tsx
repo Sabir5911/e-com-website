@@ -33,7 +33,7 @@ const getData=async() =>{
 export default async function page() {
 
     const data:cart[]=await getData()    
-    const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)    
+    const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('id')?.value)    
   return <>
   <Wrapper>
   <div className='mt-28'>    

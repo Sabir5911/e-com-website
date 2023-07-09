@@ -20,10 +20,10 @@ export async function POST(request:NextRequest){
     const req =await request.json()
      const idgenerate=v4()
     const setcookey=cookies()
-    const user_id=cookies().get('user_id')?.value
+    const user_id=cookies().get('id')?.value
 
     if(!user_id){
-        setcookey.set('user_id',idgenerate)
+        setcookey.set('id',idgenerate)
 
     }
 
