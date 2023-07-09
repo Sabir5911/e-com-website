@@ -7,7 +7,6 @@ const BASE_URL =
     ? "http://localhost:3000"
     : "https://ecom-59111.vercel.app";
 
-
 const getData=async() =>{
   
   try {
@@ -31,11 +30,7 @@ const getData=async() =>{
 }
 export default async function page() {
 
-    const data:cart[]=await getData()
-    console.log(data);
-    console.log(data);
-    console.log(data);
-        
+    const data:cart[]=await getData()        
   return <>
   <Wrapper>
   <div className='mt-28'>    

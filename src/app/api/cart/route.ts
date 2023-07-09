@@ -16,8 +16,13 @@ export async function POST(request:NextRequest){
     const req =await request.json()
      const idgenerate=v4()
     const setcookey=cookies()
-    setcookey.set('id',idgenerate)
-const user_id=cookies().get('id')?.value
+    const user_id=cookies().get('id')?.value
+
+    if(!user_id){
+        setcookey.set('id',idgenerate)
+
+    }
+
     try{
         const res=await db.insert(usercarts).values({
             price:req.price,
