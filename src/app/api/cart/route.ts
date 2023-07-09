@@ -2,11 +2,15 @@
 import { NextRequest,NextResponse} from "next/server";
 import {db,usercarts} from '../../lib/drizzel'
 import {v4} from "uuid"
+import { eq } from "drizzle-orm";
 import { cookies } from "next/dist/client/components/headers";
+
 export async function GET(request:NextRequest){      
+
 
 try{
     const res=await db.select().from(usercarts)
+
     return NextResponse.json(res)
 }catch(err){
     return new Response("some thing went wrong in ")       
@@ -16,10 +20,10 @@ export async function POST(request:NextRequest){
     const req =await request.json()
      const idgenerate=v4()
     const setcookey=cookies()
-    const user_id=cookies().get('id')?.value
+    const user_id=cookies().get('user_id')?.value
 
     if(!user_id){
-        setcookey.set('id',idgenerate)
+        setcookey.set('user_id',idgenerate)
 
     }
 
