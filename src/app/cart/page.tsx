@@ -1,6 +1,5 @@
 import React from 'react'
 import { cart } from '../lib/drizzel'
-import { urlForImage } from '../../../sanity/lib/image'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
 const handlepost=async()=>{
