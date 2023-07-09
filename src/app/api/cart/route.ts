@@ -25,7 +25,9 @@ const user_id=cookies().get('id')?.value
             quantity:req.quantity,
             image:req.image,
             size:req.size,
-            user_id:user_id
+            user_id:user_id,
+            title:req.title
+            
         }).returning()
         return NextResponse.json(res)
 

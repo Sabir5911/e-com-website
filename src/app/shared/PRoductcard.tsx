@@ -39,7 +39,8 @@ console.log(Quantity);
                 price:price,
                 quantity:Quantity,
                 size:Size,
-                image:urlForImage(image).url()
+                image:urlForImage(image).url(),
+                title:title
               
             })
         })

@@ -2,6 +2,8 @@ import { pgTable, serial, varchar, integer,text } from 'drizzle-orm/pg-core'
 import {drizzle} from 'drizzle-orm/vercel-postgres' 
 
 import { sql } from '@vercel/postgres'
+import { type } from 'os'
+import { InferModel } from 'drizzle-orm'
 
 export const usercarts = pgTable("usercarts", {
 
@@ -14,12 +16,14 @@ export const usercarts = pgTable("usercarts", {
  image: varchar('image'),
 
  size:text('size'),
+ title: varchar('title'),
+
 
  user_id: varchar('user_id'),
 
 
 
 })
-
+export type cart=InferModel<typeof usercarts>
 
 export const db=drizzle(sql)
