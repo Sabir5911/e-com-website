@@ -6,13 +6,9 @@ const handlepost=async()=>{
 try{
     const res=await fetch("http:127.0.0.1:3000/api/cart",{
         method:"GET",
-        headers:{
-            "Content-Type":"application.json"
-        }
+        
     })
-    if(!res.ok){
-        throw new Error('fAILED TO FETCH DATA')
-    }
+
     const result=await res.json()
     return result
 }catch(err){
