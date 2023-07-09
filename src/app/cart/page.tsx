@@ -3,15 +3,11 @@ import { cart } from '../lib/drizzel'
 import Image from 'next/image'
 import Wrapper from '../shared/Wrapper'
 
-const BASE_URL =
-  process.env.NODE_ENV == "development"
-    ? "http://localhost:3000"
-    : "e-com-website-seven.vercel.app";
 
 
 const getData=async() =>{
   try {
-    const data = await fetch(`${BASE_URL}/api/cart`, {
+    const data = await fetch(`http:127.0.0.1:3000/api/cart`, {
       cache: "no-store",
     });
    
@@ -31,7 +27,7 @@ export default async function page() {
 
 <h1 className='text-3xl  font-bold pb-10'>Shopping Cart </h1>
     {
-        data.map((elm)=>(
+        data?.map((elm)=>(
             <div  className='flex gap-x-11 justify-start items-center'>
                 {/* ////////////// */}
              <div> 
