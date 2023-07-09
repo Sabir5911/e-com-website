@@ -5,11 +5,9 @@ import Wrapper from '../shared/Wrapper'
 const handlepost=async()=>{
 try{
     const res=await fetch("http:127.0.0.1:3000/api/cart",{
-        method:"GET",
-        
+        method:"GET",  
     })
-
-    const result=await res.json()
+const result=await res.json()
     return result
 }catch(err){
 console.log(err);
