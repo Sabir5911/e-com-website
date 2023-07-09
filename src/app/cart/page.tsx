@@ -27,17 +27,7 @@ const getData=async() =>{
     console.log((error as { message: string }).message);
   }
 
-  // try {
-  //   const data = await fetch(`http:127.0.0.1:3000/api/cart`, {
-  //     method:"GET",
-  //     cache: "no-store",
 
-  //   });
-   
-  //   return await data.json();
-  // } catch (error) {
-  //   console.log((error as { message: string }).message);
-  // }
 }
 export default async function page() {
 
