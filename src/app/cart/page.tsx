@@ -11,7 +11,6 @@ const BASE_URL =
     : "https://ecom-59111.vercel.app";
     
 const getData=async() =>{
-  const {refresh}=useRouter()
 
 
   try {
@@ -28,7 +27,6 @@ const getData=async() =>{
     }
   const result= await res.json();
   return result
-  refresh()
 
   } catch (error) {
     console.log((error as { message: string }).message);
