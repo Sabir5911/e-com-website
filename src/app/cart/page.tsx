@@ -7,7 +7,9 @@ import Wrapper from '../shared/Wrapper'
 const getData=async() =>{
   try {
     const data = await fetch(`http:127.0.0.1:3000/api/cart`, {
+      method:"GET",
       cache: "no-store",
+
     });
    
     return await data.json();
