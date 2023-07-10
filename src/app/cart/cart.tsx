@@ -13,10 +13,10 @@ export const Cart: FC<cart> = ({  product_name, size, price, title,image }) => {
     return <>
   
   
-  <div  className='flex gap-x-11 justify-start items-center'>
+  <div  className='flex gap-x-11 justify-start items-center '>
                 {/* ////////////// */}
-             <div> 
-             <Image src={`${image}`} width={250} height={250}alt='sa' className='rounded-md'/>
+             <div className='my-3'> 
+             <Image src={`${image}`} width={250} height={250}alt='sa' className='rounded-md '/>
              </div>
              <div className='flex gap-3 flex-col justify-between'> 
                 <div className='text-3xl '> {product_name}</div>
