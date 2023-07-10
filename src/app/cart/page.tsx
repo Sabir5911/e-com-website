@@ -11,8 +11,6 @@ const BASE_URL =
     : "https://ecom-59111.vercel.app";
     
 const getData=async() =>{
-
-
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
       headers:{

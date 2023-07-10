@@ -1,7 +1,7 @@
 import { NextRequest,NextResponse} from "next/server";
 import {db,usercarts} from '../../lib/drizzel'
 import {v4} from "uuid"
-import { eq } from "drizzle-orm";
+import { eq, isNull } from "drizzle-orm";
 import { cookies } from "next/dist/client/components/headers";
 
 export async function GET(request:NextRequest){      
@@ -18,10 +18,12 @@ export async function POST(request:NextRequest){
     const req =await request.json()
      const idgenerate=v4()
     const setcookey=cookies()
-    const user_id=cookies().get('user_id')?.value
 
-    if(!user_id){
+
+    if(!cookies().get('user_id')?.value){
+
         setcookey.set('user_id',idgenerate)
+
 
     }
 
@@ -32,7 +34,7 @@ export async function POST(request:NextRequest){
             quantity:req.quantity,
             image:req.image,
             size:req.size,
-            user_id:user_id,
+            user_id:cookies().get('user_id')?.value ,
             title:req.title
             
         }).returning()
