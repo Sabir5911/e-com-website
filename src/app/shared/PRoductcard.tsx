@@ -4,11 +4,12 @@ import { urlForImage } from "../../../sanity/lib/image";
 import { PRODUCTS } from "@/app/AllProducts/page";
 import { useState } from "react";
 import Image from "next/image";
+
 export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
   const [Quantity, setQuantity] = useState(1);
 
   const [Size, setSize] = useState("XS");
-  const [color, setcolor] = useState(true);
+  const [color, setcolor] = useState(false);
 
   const clickhandle=()=>{
     setcolor(!color)
