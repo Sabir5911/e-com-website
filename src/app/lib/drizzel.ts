@@ -10,7 +10,7 @@ export const usercarts = pgTable("usercarts", {
     id: serial('id').primaryKey(),
 
     product_name: varchar("product_name"),
- quantity: integer('quantity'),
+ quantity: integer('quantity').notNull(),
 
  price: integer('price'),
  image: varchar('image'),

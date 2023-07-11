@@ -4,8 +4,11 @@ import { urlForImage } from "../../../sanity/lib/image";
 import { PRODUCTS } from "@/app/AllProducts/page";
 import { useState } from "react";
 import Image from "next/image";
+import { useRouter } from "next/navigation";
 
 export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
+
+  const {refresh}=useRouter()
   const [Quantity, setQuantity] = useState(1);
 
   const [Size, setSize] = useState("XS");
@@ -34,6 +37,8 @@ console.log(color);
       setQuantity(1);
     }
   };
+  refresh()
+
 
   const handlepost = async () => {
     const res = await fetch("/api/cart", {

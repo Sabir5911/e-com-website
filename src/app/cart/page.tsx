@@ -1,7 +1,5 @@
 import React from 'react'
 import { cart } from '../lib/drizzel'
-import Image from 'next/image'
-import Wrapper from '../shared/Wrapper'
 import { cookies } from "next/dist/client/components/headers";
 import { Cart } from './cart'
 const BASE_URL =
@@ -9,7 +7,7 @@ const BASE_URL =
     ? "http://localhost:3000"
     : "https://ecom-59111.vercel.app";
     
-const getData=async() =>{
+export  const getData=async() =>{
 
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
@@ -24,7 +22,9 @@ const getData=async() =>{
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-  const result= await res.json();
+   const result= await res.json();
+
+
 
   return result
   } catch (error) {
@@ -37,21 +37,16 @@ export default async function page() {
 
 
 
-    const data:cart[]=await getData()    
-    const cartdata=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  
-  
+     const data:cart[]=await getData()    
+    const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  
+    
   return <>
-  <Wrapper>
   <div className='mt-28'>    
 
 <h1 className='text-3xl  font-bold pb-10'>Shopping Cart </h1>
-    {
-        cartdata.map((elm)=>(
-          <Cart {...elm}/>
-        ))
-    }
+
+    <Cart data={cartdata}/>
   </div>
-  </Wrapper>
   </>
 }
    {/* 

@@ -1,13 +1,15 @@
-
 import Image from "next/image";
-
 import logo from "../../../public/assets/Logo.jpg";
 import serch from "../../../public/assets/serch.png";
-import shop from "../../../public/assets/shop.png";
 import Wrapper from "../shared/Wrapper";
 import Link from "next/link";
-export default function Header() {
+import { getData } from "../cart/page";
+import { cart } from "../lib/drizzel";
 
+import CartButton from "./CartButton";
+
+export default async function Header() {
+  const data: cart[] = await getData();
 
   return (
     <>
@@ -41,20 +43,7 @@ export default function Header() {
 
               {/* ?? */}
             </div>
-            <div>
-              <span className=" w-5 h-5 float-right  rounded-md text-white bg-red-500 text-sm flex justify-center items-center">
-                {}
-              </span>
-              <Link href={"/cart"}>
-                <Image
-                  src={shop}
-                  alt="image"
-                  width={35}
-                  height={35}
-                  className="hover:scale-105 duration-300  "
-                />
-              </Link>
-            </div>
+            <CartButton data={data} />
           </div>
         </main>
       </Wrapper>
