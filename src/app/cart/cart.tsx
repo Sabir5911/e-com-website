@@ -3,6 +3,7 @@ import Image from "next/image";
 import { cart } from "../lib/drizzel";
 import { useRouter } from "next/navigation";
 import { Button } from "../shared/Button";
+import { Supermercado_One } from "next/font/google";
 
 export const Cart = ({ data }: { data: cart[] }) => {
   const { refresh } = useRouter();
@@ -51,20 +52,21 @@ export const Cart = ({ data }: { data: cart[] }) => {
        
 {/* ///////////////////////// */}
       
-      <div className="bg-gray-100 w-[260px] h-[250px] rounded-md">
+      <div className="bg-[#FBFCFF] w-[300px] h-[280px]">
 
-<div className="flex  flex-col  gap-y-4 justify-center ">
+<div className="flex  flex-col  gap-y-4 ">
 
-<h1 className="text-lg font-bold m-3">Order Summary</h1>
+<h1 className="text-2xl font-bold m-9">Order Summary</h1>
 
   <div className="flex justify-around">
-    <text className="text-lg font-normal">Items in Cart:</text>
-    <div className="text-lg font-normal">{}</div>
+    <text className="text-xl font-medium">Quantity</text>
+    <div className="text-lg font-medium">{quantity} Product</div>
   </div>
 
   <div className="flex justify-around">
-    <text className="text-lg font-normal">Sub Total:{sum}$</text>
-    <div className="text-lg font-normal">Total Quantity{quantity}$</div>
+    <text className="text-xl font-medium" >Sub Total</text>
+    <div className="text-lg font-medium">${sum}</div>
+
  
 </div>
 <div className="flex justify-center items-center">
