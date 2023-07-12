@@ -12,7 +12,7 @@ export const usercarts = pgTable("usercarts", {
     product_name: varchar("product_name"),
  quantity: integer('quantity').notNull(),
 
- price: integer('price'),
+ price: integer('price').notNull(),
  image: varchar('image'),
 
  size:text('size'),
