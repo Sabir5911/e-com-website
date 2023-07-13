@@ -9,14 +9,14 @@ export const Cart = ({ data }: { data: cart[] }) => {
   console.log(data);
   
   let quantity: number = 0;
-  // const quantitys = data.forEach((elm) => {
-  //   return <>{(quantity += elm.quantity)}</>;
-  // });
+  const quantitys = data.forEach((elm) => {
+    return <>{(quantity += elm.quantity)}</>;
+  });
 
   let sum = 0;
-  // const value= data.forEach((elm) => {
-  //   return <>{(sum += elm.price*elm.quantity)}</>;
-  // });
+  const value= data.forEach((elm) => {
+    return <>{(sum += elm.price*elm.quantity)}</>;
+  });
 
   return (
     <>
