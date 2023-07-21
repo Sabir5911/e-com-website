@@ -1,5 +1,4 @@
 import { FC } from "react";
-import { useDispatch } from "react-redux";
 
 const Button: FC<{ Text: string }> = ({ Text }) => {
 

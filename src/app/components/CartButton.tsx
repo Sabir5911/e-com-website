@@ -8,14 +8,13 @@ import { cookies } from "next/dist/client/components/headers";
 
 export default function CartButton({ data }: { data: cart[] }) {
   const cartdata: cart[] = data.filter(
-    (elm) => elm.user_id == cookies().get("user_id")?.value
-  );
+    (elm) => elm.user_id == cookies().get("user_id")?.value);
 
   let sum: number = 0;
   const value = cartdata.forEach((elm) => {
     return <>{(sum += elm.quantity)}</>;
   });
-
+;
   return (
     <div>
       <div>

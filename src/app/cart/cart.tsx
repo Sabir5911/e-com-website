@@ -2,21 +2,36 @@
 import Image from "next/image";
 import { cart } from "../lib/drizzel";
 import { useRouter } from "next/navigation";
-import { Button } from "../shared/Button";
-
+import { AiOutlineDelete } from "react-icons/ai";
 export const Cart = ({ data }: { data: cart[] }) => {
+  const { refresh } = useRouter();
 
-  console.log(data);
-  
   let quantity: number = 0;
+
   const quantitys = data.forEach((elm) => {
     return <>{(quantity += elm.quantity)}</>;
   });
 
   let sum = 0;
-  const value= data.forEach((elm) => {
-    return <>{(sum += elm.price*elm.quantity)}</>;
+  const value = data.forEach((elm) => {
+    return <>{(sum += elm.price * elm.quantity)}</>;
   });
+
+  const handleDelete = async (id: number) => {
+    try {
+      if (id) {
+        const response = await fetch(`/api/cart?id=${id}`, {
+          method: "DELETE",
+          headers: {
+            "Content-Type": "application/json",
+          },
+        });
+      }
+    } catch (error) {
+      console.log("An error occurred during the delete request:", error);
+    }
+  };
+  refresh();
 
   return (
     <>
@@ -32,7 +47,7 @@ export const Cart = ({ data }: { data: cart[] }) => {
                 className="rounded-md "
               />
               <div className="flex  flex-col justify-between gap-y-3">
-                <div className="text-3xl "> {elm.product_name}</div>
+                <div className="text-3xl flex gap"> {elm.product_name}</div>
                 <div className="text-xl font-bold"> Size {elm.size}</div>
                 <div className="text-xl font-bold"> {elm.title}</div>
                 <div className="text-xl font-semibold">Delivery Estimation</div>
@@ -40,8 +55,12 @@ export const Cart = ({ data }: { data: cart[] }) => {
                   5 Working Days
                 </div>
                 <div className="text-xl font-bold"> {elm.price}$</div>
-                <div className="text-xl font-bold"> {elm.quantity}</div>
+                <div className="text-xl font-bold"> Quantity:{elm.quantity}</div>
               </div>
+              <button onClick={() => handleDelete(elm.id)}>   
+                {" "}
+                <AiOutlineDelete size={40}/>
+              </button>
             </div>
           ))}
         </div>

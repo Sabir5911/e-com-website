@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { cart } from '../lib/drizzel'
 import { cookies } from "next/dist/client/components/headers";
@@ -8,7 +9,7 @@ const BASE_URL =
     : "https://ecom-59111.vercel.app";
     
 export  const getData=async() =>{
-
+ 
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
       headers:{
@@ -34,8 +35,7 @@ export  const getData=async() =>{
 
 }
 export default async function page() {
-
-
+ 
 
      const data:cart[]=await getData()    
     const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  

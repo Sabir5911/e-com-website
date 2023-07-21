@@ -14,7 +14,7 @@ export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
   const [Size, setSize] = useState("XS");
   const [color, setcolor] = useState(false);
 
-  const clickhandle=()=>{
+  const clickhandle=()=>{              
     setcolor(!color)
   }
 console.log(color);
@@ -38,8 +38,9 @@ console.log(color);
     }
   };
   refresh()
+////////////////////
 
-
+//////////////////////////
   const handlepost = async () => {
     const res = await fetch("/api/cart", {
       method: "POST",
