@@ -19,8 +19,8 @@ export async function GET(request: NextRequest) {
 export async function POST(request: NextRequest) {
 
     const req = await request.json()
-    
-    const idgenerate = v4()      
+
+    const idgenerate = v4()
     const setcookey = cookies()
 
 
@@ -58,9 +58,7 @@ export async function DELETE(req: NextRequest) {
 
     try {
         if (url.has("id")) {
-            let response = await db.delete(usercarts).
-                where(
-                    eq(usercarts.id, (url.get("id") as unknown as number))).returning()
+            let response = await db.delete(usercarts).where(eq(usercarts.id, (url.get("id") as unknown as number))).returning()
             return NextResponse.json({ response });
         }
     } catch (error) {
