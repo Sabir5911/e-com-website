@@ -3,7 +3,6 @@ import React from "react";
 import shop from "../../../public/assets/shop.png";
 import Image from "next/image";
 import { cart } from "../lib/drizzel";
-import { useRouter } from "next/navigation";
 import { cookies } from "next/dist/client/components/headers";
 
 export default function CartButton({ data }: { data: cart[] }) {

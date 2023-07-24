@@ -1,31 +1,30 @@
 "use client";
-import React, { FC } from "react";
 import { urlForImage } from "../../../sanity/lib/image";
 import { PRODUCTS } from "@/app/AllProducts/page";
-import { useState } from "react";
-import Image from "next/image";
+import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
+import Image from "next/image";
 
-export const PRoductcard: FC<PRODUCTS> = ({ image, name, price, title }) => {
+export const PRoductcard  = ({data}:{data:PRODUCTS[]}) => {
+   
 
-  const {refresh}=useRouter()
+console.log(data);
+
+
+  const {refresh} = useRouter();
+
+
   const [Quantity, setQuantity] = useState(1);
 
   const [Size, setSize] = useState("XS");
-  const [color, setcolor] = useState(false);
 
-  const clickhandle=()=>{              
-    setcolor(!color)
-  }
-console.log(color);
+  /////////////
+  const colorHAndle = (Selected_Size: string) => Size == Selected_Size ? "bg-black text-white" : "bg-slate-300 text-white ";
 
-  console.log(Size);
-
+ 
   const handleSize = (size: string) => {
     setSize(size);
   };
-
-  console.log(Quantity);
 
   const increment = () => {
     setQuantity(Quantity + 1);
@@ -37,31 +36,35 @@ console.log(color);
       setQuantity(1);
     }
   };
-  refresh()
-////////////////////
+  ////////////////////
 
-//////////////////////////
+  //////////////////////////
   const handlepost = async () => {
     const res = await fetch("/api/cart", {
       method: "POST",
       body: JSON.stringify({
-        product_name: name,
-        price: price,
+        product_name: data[0].name,
+        price:data[0]. price,
         quantity: Quantity,
         size: Size,
-        image: urlForImage(image).url(),
-        title: title,
+        image: urlForImage( data[0].image ).url(),
+        title: data[0].title,
       }),
     });
     const result = await res.json();
-    console.log(result);
   };
-  return (
-    <div className="mt-12 flex gap-x-11 justify-center ">
-      {/* ////////////// */}
-      <div>
+  refresh();
+
+  return <>
+
+
+    <div >
+      {
+        data.map((elm)=>(
+          <div className="mt-12 flex gap-x-11 justify-center ">
+             <div>
         <Image
-          src={urlForImage(image).url()}
+          src={urlForImage(elm.image).url()}
           alt="sa"
           width={500}
           height={500}
@@ -70,8 +73,8 @@ console.log(color);
 
       <div>
         <div className="mt-28">
-          <h1 className="text-4xl">{name}</h1>
-          <text className="text-2xl text-[#C6C6C6] font-medium">{title}</text>
+          <h1 className="text-4xl">{elm.name}</h1>
+          <text className="text-2xl text-[#C6C6C6] font-medium">{elm.title}</text>
         </div>
 
         <div className="mt-16">
@@ -79,8 +82,8 @@ console.log(color);
           <div className="flex gap-x-14 text-2xl mt-5 font-semibold text-[#666]">
             {["XS", "S", "M", "L", "XL"].map((elm) => (
               <div
-                onClick={() => handleSize(elm)}  onChange={clickhandle}
-                className={`w-10 h-10 flex justify-center items-center rounded-full  ${color===true?"bg-slate-300":""}  duration-300 shadow-2xl cursor-pointer`} 
+                onClick={() => handleSize(elm)}
+                className={`w-10 h-10 flex justify-center items-center rounded-full cursor-pointer ${colorHAndle(elm)}`}
               >
                 {elm}
               </div>
@@ -117,9 +120,17 @@ console.log(color);
           >
             ADD TO CART
           </button>
-          <text className="text-3xl font-bold">$ {price}</text>
+          <text className="text-3xl font-bold">$ {elm.price}</text>
         </div>
       </div>
+             </div>
+        ))
+      }
+      {/* ////////////// */}
+     
     </div>
-  );
+    </>
 };
+
+
+

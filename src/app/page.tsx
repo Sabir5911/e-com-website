@@ -13,6 +13,7 @@ export default async function Home() {
       <Hero3 />
       <Hero4 />
       <Footer />
+
     </>
   );
 }

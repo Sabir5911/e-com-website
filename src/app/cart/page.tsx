@@ -1,8 +1,7 @@
 
-import React from 'react'
 import { cart } from '../lib/drizzel'
 import { cookies } from "next/dist/client/components/headers";
-import { Cart } from './cart'
+import { Cart } from '../components/cart'
 const BASE_URL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:3000"
@@ -38,7 +37,9 @@ export default async function page() {
  
 
      const data:cart[]=await getData()    
-    const cartdata:cart[]=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  
+    const cartdata=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  
+    
+    console.log(cartdata);
     
   return <>
   <div className='mt-28'>    

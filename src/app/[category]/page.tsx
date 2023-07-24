@@ -2,7 +2,6 @@
 import { client } from '../../../sanity/lib/client';
 import Link from 'next/link';
 import { urlForImage } from '../../../sanity/lib/image'; 
-import { Image as IIMAGE } from 'sanity';
 import Image from 'next/image';
 import Wrapper from '../shared/Wrapper';
 import { PRODUCTS } from '../AllProducts/page';

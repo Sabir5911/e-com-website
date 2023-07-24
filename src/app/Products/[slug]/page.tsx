@@ -1,5 +1,5 @@
 import { client } from "../../../../sanity/lib/client";
-import { PRoductcard } from "@/app/shared/PRoductcard";
+import { PRoductcard } from "../../components/PRoductcard";
 import { PRODUCTS } from "@/app/AllProducts/page";
 const FetchData = async (slug: string) => {
   const data = await client.fetch(
@@ -7,7 +7,7 @@ const FetchData = async (slug: string) => {
   );
   return data;
 };
-export default async function PRODUCTSDETAILS({   
+export default async function PRODUCTSDETAILS({
   params,
 }: {
   params: { slug: string };
@@ -15,10 +15,8 @@ export default async function PRODUCTSDETAILS({
   const res: PRODUCTS[] = await FetchData(params.slug);
 
   return (
-    <div>
-      {res.map((elm: PRODUCTS) => (
-        <PRoductcard {...elm} />
-      ))}
-    </div>
+    <>
+        <PRoductcard data={res} />
+    </>
   );
 }

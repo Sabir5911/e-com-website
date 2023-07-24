@@ -1,5 +1,5 @@
 import { NextRequest, NextResponse } from "next/server";
-import { cart, db, usercarts } from '../../lib/drizzel'
+import { db, usercarts } from '../../lib/drizzel'
 import { v4 } from "uuid"
 import { cookies } from "next/dist/client/components/headers";
 import { eq } from "drizzle-orm";
@@ -56,6 +56,8 @@ export async function POST(request: NextRequest) {
 export async function DELETE(req: NextRequest) {
     let url = req.nextUrl.searchParams;
 
+
+    
     try {
         if (url.has("id")) {
             let response = await db.delete(usercarts).where(eq(usercarts.id, (url.get("id") as unknown as number))).returning()
