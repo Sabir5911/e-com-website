@@ -20,12 +20,12 @@ export default async function page({params}:{params:{category:string}}) {
   return <>
   <Wrapper>
 
-  <div className='flex flex-wrap justify-around items-center '>
+  <div className='flex flex-wrap justify-evenly items-center  gap-x-6'>
 {
   result.map((elm)=>(
     <Link href={{pathname:`/products/${elm.slug.current}`}}>
 <div className="mt-28" key={elm._id}>
-        <Image src={urlForImage(elm.image).url()} width={400} height={400}alt='sa'/>
+        <Image src={urlForImage(elm.image).url()} width={300} height={300}alt='Female cateogory' className='rounded-md'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>
         <span className="text-lg font-semibold text-gray-400">
             {elm.title}

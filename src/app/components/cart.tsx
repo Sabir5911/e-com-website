@@ -46,7 +46,6 @@ export const Cart = ({ data }: { data: cart[] }) => {
       }
     } catch (error) {
       console.log("An error occurred during the delete request:", error);
-
     }
   };
   refresh();
@@ -57,11 +56,11 @@ export const Cart = ({ data }: { data: cart[] }) => {
         <div>
           {data.map((elm) => (
             <div className="flex gap-x-5 p-2 justify-start my-12 ">
-                 <Image
+              <Image
                 src={`${elm.image}`}
                 width={280}
                 height={280}
-                alt="sa"     
+                alt="sa"
                 className="rounded-md "
               />
               <div className="flex  flex-col justify-between gap-y-3">

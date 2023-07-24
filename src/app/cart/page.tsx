@@ -1,56 +1,46 @@
-
-import { cart } from '../lib/drizzel'
+import { cart } from "../lib/drizzel";
 import { cookies } from "next/dist/client/components/headers";
-import { Cart } from '../components/cart'
+import { Cart } from "../components/cart";
 const BASE_URL =
   process.env.NODE_ENV == "development"
     ? "http://localhost:3000"
     : "https://ecom-59111.vercel.app";
-    
-export  const getData=async() =>{
- 
+
+export const getData = async () => {
   try {
     const res = await fetch(`${BASE_URL}/api/cart`, {
-      headers:{
-        "Content-type":"application/json"
+      headers: {
+        "Content-type": "application/json",
       },
-      method:"GET",
+      method: "GET",
       cache: "no-store",
-
     });
 
     if (!res.ok) {
       throw new Error("Failed to fetch data");
     }
-   const result= await res.json();
+    const result = await res.json();
 
-
-
-  return result
+    return result;
   } catch (error) {
     console.log((error as { message: string }).message);
   }
-
-
-}
+};
 export default async function page() {
- 
+  const data: cart[] = await getData();
+  const cartdata = data.filter(
+    (elm) => elm.user_id == cookies().get("user_id")?.value
+  );
 
-     const data:cart[]=await getData()    
-    const cartdata=data.filter((elm)=>elm.user_id==cookies().get('user_id')?.value)  
-    
-    console.log(cartdata);
-    
-  return <>
-  <div className='mt-28'>    
+  console.log(cartdata);
 
-<h1 className='text-3xl  font-bold pb-10'>Shopping Cart </h1>
+  return (
+    <>
+      <div className="mt-28">
+        <h1 className="text-3xl  font-bold pb-10">Shopping Cart </h1>
 
-    <Cart data={cartdata}/>
-  </div>
-  </>
+        <Cart data={cartdata} />
+      </div>
+    </>
+  );
 }
-   {/* 
-               
-
-           */}
