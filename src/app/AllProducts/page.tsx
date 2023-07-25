@@ -36,9 +36,9 @@ export default async function page({params}:{params:{category:string}}) {
 
 {
 
-  result.map((elm)=>(
-    <Link href={{pathname:`/products/${elm.slug.current}`}}>
-<div className="mt-28" key={elm._id}>
+  result.map((elm,i=0)=>(
+    <Link href={{pathname:`/products/${elm.slug.current}`}}  key={i+1}> 
+<div className="mt-28">
 <Image src={urlForImage(elm.image).url()} width={300} height={300}alt=' cateogory' className='rounded-md'/>
         <h3 className="font-bold text-lg mt-3">{elm.name}</h3>
         <span className="text-lg font-semibold text-gray-400">

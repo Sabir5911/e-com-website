@@ -11,9 +11,10 @@ export default async function Home() {
       <Hero />
       <Hero1 />
       <Cards />
+
       <Hero3 />
+
       <Hero4 />
-      <Footer />
 
 
     </>

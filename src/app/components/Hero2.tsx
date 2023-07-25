@@ -14,20 +14,20 @@ export default async function Hero2() {
     <>
       <Wrapper>
         <div className="flex flex-col justify-center items-center ">
-          <text className="text-[#0093F8] text-lg font-bold py-11">
+          <text className="text-[#0093F8] text-xl font-bold py-11">
             PRODUCTS
           </text>
-          <h1 className="text-4xl font-bold">Check What We Have</h1>
+          <h1 className="text-4xl font-bold text-center">Check What We Have</h1>
         </div>
 
-        <div className="flex flex-wrap justify-around items-center ">
-          {data.map((elm) => (
-            <Link href={{ pathname: `/products/${elm.slug.current}` }}>
-              <div className="mt-28 ">
+        <div className="flex flex-wrap justify-evenly items-center ">
+          {data.map((elm,i=0) => (
+            <Link href={{ pathname: `/products/${elm.slug.current}` }}  key={i+1}>
+              <div className="mt-10 rounded-md ">
                 <Image
                   src={urlForImage(elm.image).url()}
-                  width={400}
-                  height={400}
+                  width={300}
+                  height={300}
                   alt="sa"
                   className="hover:scale-110 duration-500"
                 />

@@ -54,8 +54,8 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
   return (
     <>
       <div>
-        {data.map((elm) => (
-          <div className="mt-12 flex gap-x-11 justify-center ">
+        {data.map((elm,i=0) => (
+          <div className="mt-12 flex gap-x-11 justify-center " key={i+1}>
             <div>
               <Image
                 src={urlForImage(elm.image).url()}
@@ -76,8 +76,8 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
               <div className="mt-16">
                 <text className="text-xl font-bold">SELECT SIZE</text>
                 <div className="flex gap-x-12 text-2xl mt-5 font-semibold text-[#666]">
-                  {["XS", "S", "M", "L", "XL"].map((elm) => (
-                    <div
+                  {["XS", "S", "M", "L", "XL"].map((elm,i=0) => (
+                    <div key={i+1}
                       onClick={() => handleSize(elm)}
                       className={`w-10 h-10 flex justify-center items-center rounded-full cursor-pointer ${colorHAndle(
                         elm

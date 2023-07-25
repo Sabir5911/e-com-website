@@ -18,15 +18,15 @@ export default function Hero() {
       <main className='mt-44'>
 
         <div className='flex justify-around items-center'>
-          <div className='flex flex-col justify-center  '>
+          <div className='lg:flex flex-col    '>
             <div>
               {/* <Button Text='Sale 70%' /> */}
             </div>
-            <div className='mt-8  max-w-lg'>
-              <h1 className='text-6xl font-bold mt-3 '>
+            <div className='mt-8  max-w-7xl '>
+              <h1 className='lg:text-5xl font-bold mt-3 text-5xl  '>
                 An Industrial  Take on streetwear
               </h1>
-              <div className='mt-5  text-lg max-w-xs'>
+              <div className='mt-5  text-base max-w-xs lg:text-lg'>
               <text >
                 Anyone can beat you but no one can beat your outfit as long as you wear Dine outfits.
               </text>
@@ -34,8 +34,8 @@ export default function Hero() {
                       
             <div className='mt-12 '>
 
-            <button className='flex justify-center items-center bg-slate-900 border text-white py-4 px-5 rounded-sm hover:shadow-xl font-bold  text-lg hover:scale-105 duration-300' >
-            <Image src={shop1} alt='as' className='w-10 h-10 ' />
+            <button className='flex justify-center items-center bg-slate-900 border text-white lg:py-4 lg:px-5 p-3 rounded-sm font-bold text-sm lg:text-lg ' >
+            <Image src={shop1} alt='as' className='lg:w-10 h-10 w-10 h-10' />
 
     Start Shopping
     </button>
@@ -55,9 +55,9 @@ export default function Hero() {
             </div>
           </div>     
         
-          <div >
+          <div className='hidden lg:flex  ' >
 
-  <Image src={girl} alt='image' width={500} height={500} />
+  <Image src={girl} alt='image' width={500} height={500}  />
 </div>
 
         </div>

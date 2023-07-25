@@ -32,7 +32,6 @@ export default async function page() {
     (elm) => elm.user_id == cookies().get("user_id")?.value
   );
 
-  console.log(cartdata);
 
   return (
     <>

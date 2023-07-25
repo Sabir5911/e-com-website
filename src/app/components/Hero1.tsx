@@ -10,31 +10,34 @@ export default function Hero1() {
         <Wrapper>
           <div className="flex flex-col justify-center items-center mt-32 gap-y-4">
             <text className="text-[#0062F5] font-semibold">PROMOTIONS</text>
-            <h1 className="text-4xl font-semibold">Our Promotions Events</h1>
+            <h1 className="text-4xl font-semibold text-center">Our Promotions Events</h1>
           </div>
-          <div className="grid grid-cols-2 mt-12   ">
+
+
+          <div className=" mt-12   lg:flex  justify-center items-center gap-11 flex-wrap flex">
             {/* first box */}
             <div>
-              <div className="flex flex-col justify-center items-center gap-3 ">
-                <div className="bg-[#D6D6D8] flex  items-center w-[500px] h-52  ">
-                  <div className="ml-12">
-                    <h1 className="text-3xl font-bold ">GET UP TO 60%</h1>
-                    <text className="text-lg pt-3">
-                      For the summer <br /> season
+              <div className="flex flex-col justify-center items-center gap-y-3 ">
+
+                <div className="bg-[#D6D6D8] flex  items-center lg:w-[500px] h-52  w-96  justify-center">
+                  <div >
+                    <h1 className="lg:text-3xl font-bold text-2xl text-center">GET UP TO 60%</h1>
+                    <text className="lg:text-lg pt-3 text-base text-center">
+                      For the summer  season
                     </text>
                   </div>
-                  <div className="mr-14 -mb-6">
+                  <div className="lg:w-48 -mb-16 self-center w-44 ">
                     <Image
                       src={"/assets/girl2.webp"}
                       alt="sa"
                       width={300}
-                      height={300}
+                      height={310}
                     />
                   </div>
                 </div>
                 {/* second box */}
                 <div>
-                  <div className="bg-[#212121]   items-center w-[500px]  ">
+                  <div className="bg-[#212121]   items-center lg:w-[500px] justify-center h-52  w-96 ">
                     <div className="flex justify-center items-center flex-col pt-10">
                       <h1 className="text-white text-3xl font-bold">
                         GET 30% Off
@@ -46,14 +49,14 @@ export default function Hero1() {
                         </button>
                       </div>
                     </div>
-                  </div>
+                  </div>     
                 </div>
-              </div>
+              </div>          
             </div>
 
-            <div className="grid grid-cols-2   ">
-              {Data.map((elm) => (
-                <div className={`  w-72  h-[406px] bg-[#EFE1C7]`}>
+            <div className="   items-center justify-center  flex gap-x-5 lg:flex flex-wrap">
+              {Data.map((elm,i=0) => (
+                <div className={`  w-96  bg-[#EFE1C7] self-center lg:w-80`} key={i+1}>
                   <div className="flex flex-col justify-center ml-5 ">
                     <h4 className="font-thick  text-lg pt-10">{elm.Text}</h4>
                     <div className="flex  gap-3 mt-2 ">
@@ -68,8 +71,8 @@ export default function Hero1() {
                   </div>
                 </div>
               ))}
-              {Data2.map((elm) => (
-                <div className={`  w-72  h-[406px] bg-[#D7D7D9]`}>
+              {Data2.map((elm,i=0) => (
+                <div className={`  w-96  bg-[#D7D7D9] self-center lg:w-80 lg:mt-0 mt-5`} key={i+1}>
                   <div className="flex flex-col justify-center ml-5 ">
                     <h4 className="font-thick  text-lg pt-10">{elm.Text}</h4>
                     <div className="flex  gap-3 mt-2 ">
