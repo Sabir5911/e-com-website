@@ -7,7 +7,6 @@ export default function Hero1() {
   return (
     <>
       <section>
-        <Wrapper>
           <div className="flex flex-col justify-center items-center mt-32 gap-y-4">
             <text className="text-[#0062F5] font-semibold">PROMOTIONS</text>
             <h1 className="text-4xl font-semibold text-center">Our Promotions Events</h1>
@@ -89,7 +88,6 @@ export default function Hero1() {
               ))}
             </div>
           </div>
-        </Wrapper>
       </section>
     </>
   );

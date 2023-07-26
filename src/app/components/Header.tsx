@@ -1,19 +1,21 @@
+
+
+"use client"
 import Image from "next/image";
 import logo from "../../../public/assets/Logo.jpg";
 import serch from "../../../public/assets/serch.png";
 import Wrapper from "../shared/Wrapper";
-import Link from "next/link";
 import { getData } from "../cart/page";
 import { cart } from "../lib/drizzel";
 
 import CartButton from "./CartButton";
+import Link from "next/link";
 
 export default async function Header() {
   const data: cart[] = await getData();
 
   return (
     <>
-      <Wrapper>
         <main className="mt-12">
           <div className="flex justify-evenly items-center ">
             <Link href={"/"}>
@@ -41,12 +43,11 @@ export default async function Header() {
                 placeholder="What are you looking for"
               />
 
-              {/* ?? */}
             </div>
             <CartButton data={data} />
           </div>
         </main>
-      </Wrapper>
     </>
   );
 }
+

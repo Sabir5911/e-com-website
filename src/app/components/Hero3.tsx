@@ -5,7 +5,6 @@ import Link from "next/link";
 export default function Hero3() {
   return (
     <>
-        <Wrapper>
 <div className="flex  justify-center lg:ml-[500px] mt-32 text-left">
         <h1 className="lg:text-5xl font-bold max-w-lg -mb-12 text-4xl">
           Unique and Authentic Vintage Designer <br /> Jewellery
@@ -96,7 +95,6 @@ export default function Hero3() {
               </div>
             </div>
         </div>
-        </Wrapper>
 
     </>
   );

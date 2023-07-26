@@ -12,7 +12,6 @@ export default async function Hero2() {
 
   return (
     <>
-      <Wrapper>
         <div className="flex flex-col justify-center items-center ">
           <text className="text-[#0093F8] text-xl font-bold py-11">
             PRODUCTS
@@ -40,7 +39,6 @@ export default async function Hero2() {
             </Link>
           ))}
         </div>
-      </Wrapper>
     </>
   );
 }

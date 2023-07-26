@@ -13,7 +13,6 @@ import bust4 from '../../../public/assets/bust4.webp'
 
 export default function Hero() {
   return <>
-    <Wrapper>
 
       <main className='mt-44'>
 
@@ -64,7 +63,6 @@ export default function Hero() {
 
 
       </main>
-    </Wrapper>
 
   </>
 }

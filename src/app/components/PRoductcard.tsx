@@ -55,8 +55,8 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
     <>
       <div>
         {data.map((elm,i=0) => (
-          <div className="mt-12 flex gap-x-11 justify-center " key={i+1}>
-            <div>
+          <div className="mt-12 flex gap-x-11 justify-center flex-wrap " key={i+1}>
+            <div className="w-72 lg:w-[500px]">
               <Image
                 src={urlForImage(elm.image).url()}
                 alt="sa"
@@ -67,7 +67,7 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
 
             <div>
               <div className="mt-28">
-                <h1 className="text-4xl">{elm.name}</h1>
+                <h1 className="text-2xl lg:text-4xl">{elm.name}</h1>
                 <text className="text-2xl text-[#C6C6C6] font-medium">
                   {elm.title}
                 </text>
@@ -75,7 +75,7 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
 
               <div className="mt-16">
                 <text className="text-xl font-bold">SELECT SIZE</text>
-                <div className="flex gap-x-12 text-2xl mt-5 font-semibold text-[#666]">
+                <div className="flex gap-x-6 text-2xl mt-5 font-semibold text-[#666] lg:gap-x-10">
                   {["XS", "S", "M", "L", "XL"].map((elm,i=0) => (
                     <div key={i+1}
                       onClick={() => handleSize(elm)}
@@ -90,9 +90,10 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
               </div>
               {/* //////////////////// */}
 
-              <div className="flex gap-x-10 justify-center items-center mt-16">
-                <h1 className="text-xl font-bold ">QUANTITY :</h1>
+              <div className="flex gap-x-10 justify-center items-center mt-16  flex-col float-left ">
                 <div className="flex items-center gap-x-2 text-2xl">
+                <h1 className="text-xl font-bold ">QUANTITY :</h1>
+
                   {/* Minus */}
                   <button
                     onClick={decrement}
@@ -110,16 +111,17 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
                     +
                   </button>
                 </div>
-              </div>
-              <div className="mt-14 flex gap-x-10">
+                <div className="mt-14 flex gap-x-10  float-left lg:float-none">
                 <button
                   onClick={handlepost}
-                  className="bg-blue-100 text-[#0000ff] px-6 py-2 rounded-md hover:shadow-xl font-semibold  text-lg "
+                  className="bg-blue-100 text-[#0000ff] px-4 py-3 rounded-md hover:shadow-xl font-semibold  text-base  "
                 >
                   ADD TO CART
                 </button>
                 <text className="text-3xl font-bold self-center">{elm.price}$</text>
               </div>
+              </div>
+             
             </div>
           </div>
         ))}

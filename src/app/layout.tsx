@@ -21,7 +21,7 @@ export default function RootLayout({
       <body className={inter.className}>
        
        <Wrapper>
-       <Header />
+       {/* <Header /> */}
 
 {children}
 <Footer />

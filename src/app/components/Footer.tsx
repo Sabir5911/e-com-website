@@ -4,7 +4,7 @@ import Image from 'next/image'
 export default function Footer() {
   return <>
   <Wrapper>
-<div className= 'flex justify-around mt-24 justify-center'>
+<div className= ' flex-wrap lg:flex justify-around mt-24 justify-center '>
     {/* // first div */}
 <div className='flex flex-col  gap-4 '>
     <Image src={'/assets/Logo.jpg'} alt='logo'width={159}height={159} />
@@ -16,7 +16,7 @@ Small, artisan label that offers a thoughtfully curated collection of high quali
 </div>
 
 {/* second div */}
-<div className='flex flex-col gap-3'>
+<div className='flex flex-col gap-3 mt-4'>
     <h2 className='text-xl font-semibold text-slate-600'>Company</h2>
     <ul className='flex flex-col justify-center  text-slate-700 gap-2  text-base '>
         <li>About</li>
@@ -27,7 +27,7 @@ Small, artisan label that offers a thoughtfully curated collection of high quali
     </ul>
 </div>
 {/* third */}
-<div className='flex flex-col  gap-3 '>
+<div className='flex flex-col  gap-3 mt-4 '>
     <h2 className='text-xl font-semibold text-slate-600'>Support</h2>
     <ul className='flex flex-col justify-center  text-slate-700 gap-2 '>
         <li>Support Carrer</li>
@@ -36,7 +36,7 @@ Small, artisan label that offers a thoughtfully curated collection of high quali
        </ul>
 </div>
 {/* fourth */}
-<div className='flex flex-col gap-3' >
+<div className='flex flex-col gap-3 mt-4' >
     <h2 className='text-xl font-semibold text-slate-600'>Contact</h2>
     <ul className='flex flex-col justify-center  text-slate-700 gap-2 '>
         <li>Whatsapp</li>
@@ -45,10 +45,8 @@ Small, artisan label that offers a thoughtfully curated collection of high quali
     </ul>
 </div>
 </div>
-  </Wrapper>
   <hr className=' border-slate-800 mt-24 mb-6' />
-  <Wrapper>
-  <div className='flex justify-around mb-2 text-lg'>
+  <div className='flex justify-around mb-2 text-lg flex-wrap gap-3'>
     <h1>
     Copyright © 2023 5911
     </h1>

@@ -3,7 +3,6 @@ import Wrapper from '../shared/Wrapper'
 
 export default function Hero4() {
   return <>       
-  <Wrapper>
 
   
 <div className='flex flex-col justify-center items-center   mt-40  relative  '>
@@ -22,6 +21,5 @@ export default function Hero4() {
 
 </div>     
 
-  </Wrapper>
   </>
 }
