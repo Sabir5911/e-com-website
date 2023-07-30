@@ -21,8 +21,8 @@ export default function Hero() {
             <div>
               {/* <Button Text='Sale 70%' /> */}
             </div>
-            <div className='mt-8  max-w-7xl '>
-              <h1 className='lg:text-5xl font-bold mt-3 text-5xl  '>
+            <div className='mt-8  max-w-md'>
+              <h1 className='lg:text-5xl font-bold mt-3 text-4xl  '>
                 An Industrial  Take on streetwear
               </h1>
               <div className='mt-5  text-base max-w-xs lg:text-lg'>

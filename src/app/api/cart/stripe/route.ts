@@ -1,7 +1,6 @@
 import { cart } from "@/app/lib/drizzel";
 import { NextRequest, NextResponse } from "next/server";
 import Stripe from "stripe";
-
 const key = process.env.STRIPE_SECRET_KEY || "";
 
 const stripe = new Stripe(key, {
@@ -48,7 +47,7 @@ export async function POST(request: NextRequest) {
         phone_number_collection: {
           enabled: true,
         },
-        success_url: `${request.headers.get("origin")}/success`,
+        success_url: `${request.headers.get("origin")}/../../../components/success`,
         cancel_url: `${request.headers.get("origin")}/?canceled=true`,
       });
       return NextResponse.json({ session });

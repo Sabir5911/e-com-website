@@ -16,13 +16,13 @@ export default function Hero3() {
 {/* ////////////////////////////// */}
           <div className="flex flex-col  justify-center  pt-12  items-center ">
 
-            <div className="flex justify-center  items-center  mt-16 relative  w-96 lg:gap-x-20 gap-x-2" >
+            <div className="flex justify-center  items-center  mt-16 relative  w-96 lg:gap-x-20 gap-x-2 flex-1" >
 
-              <span className="  absolute lg:text-[85px] text-6xl font-bold  opacity-10 text-gray-500 z-10 ">
+              <span className="   absolute lg:text-[85px] text-6xl font-bold  opacity-10 text-gray-500 z-10 ">
                 Different from others
               </span>
 
-              <div className="flex flex-col gap-y-6 justify-center items-center ">
+              <div className="flex flex-col gap-y-6 justify-center items-center flex-1 ">
                 <div>
                   <h1 className="text-base font-bold lg:text-lg">
                     Using Good Quality  Materials
@@ -46,7 +46,7 @@ export default function Hero3() {
               </div>
 
               {/* second */}
-              <div className="flex flex-col gap-y-6 justify-center items-center">
+              <div className="flex flex-col gap-y-6 justify-center items-center flex-1">
                 <div>
                   <h1 className="text-base font-bold">
                     100% Handmade  Products

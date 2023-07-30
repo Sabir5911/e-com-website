@@ -13,10 +13,10 @@ export default function Hero1() {
           </div>
 
 
-          <div className=" mt-12   lg:flex  justify-center items-center gap-11 flex-wrap flex">
+          <div className=" mt-12   lg:flex  justify-center items-center gap-11 flex-wrap flex flex-1">
             {/* first box */}
             <div>
-              <div className="flex flex-col justify-center items-center gap-y-3 ">
+              <div className="flex flex-1 flex-col justify-center items-center gap-y-3 ">
 
                 <div className="bg-[#D6D6D8] flex  items-center lg:w-[500px] h-52  w-96  justify-center">
                   <div >

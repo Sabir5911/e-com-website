@@ -1,18 +1,24 @@
 import React from 'react'
 import Wrapper from '../shared/Wrapper'
 import Image from 'next/image'
+import {FaFacebookF,FaTwitter ,FaInstagram}from 'react-icons/fa'
 export default function Footer() {
   return <>
   <Wrapper>
 <div className= ' flex-wrap lg:flex justify-around mt-24 justify-center '>
     {/* // first div */}
-<div className='flex flex-col  gap-4 '>
+<div className='flex flex-col  gap-4 justify-center '>
     <Image src={'/assets/Logo.jpg'} alt='logo'width={159}height={159} />
 
 <p className='max-w-[280px] text-base text-slate-600 '>
 Small, artisan label that offers a thoughtfully curated collection of high quality everyday essentials made.
 
 </p>
+<div className='flex flex-wrap gap-x-5 mt-3  cursor-pointer '>
+    <FaFacebookF size={'40'}  className='bg-[#F1F1F1] px-2 py-2 rounded-md' />
+    <FaTwitter  size={'40'}   className='bg-[#F1F1F1] px-2 py-2 rounded-md'/>
+    <FaInstagram size={'40'}   className='bg-[#F1F1F1] px-2 py-2 rounded-md' />
+</div>
 </div>
 
 {/* second div */}

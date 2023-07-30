@@ -4,14 +4,27 @@ import { PRODUCTS } from "@/app/AllProducts/page";
 import { FC, useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
+
 
 export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
+   
+
+console.log(data);
+
+  const notify = () => toast.success(`Successfully Added!  `, {
+    position: "top-center",
+    autoClose: 2000,
+    theme: "light",
+      });
 
   const { refresh } = useRouter();
 
   const [Quantity, setQuantity] = useState(1);
 
-  const [Size, setSize] = useState("");
+  const [Size, setSize] = useState("L");
+  
 
   /////////////
   const colorHAndle = (Selected_Size: string) =>
@@ -111,7 +124,16 @@ export const PRoductcard = ({ data }: { data: PRODUCTS[] }) => {
                     +
                   </button>
                 </div>
-                <div className="mt-14 flex gap-x-10  float-left lg:float-none">
+                <div className="mt-14 flex gap-x-10  float-left lg:float-none" onClick={notify}>
+                  <ToastContainer
+                position="top-center"
+                autoClose={5000}
+              
+                theme="light"
+                style={{ width: "250px",}}                
+                />
+
+              
                 <button
                   onClick={handlepost}
                   className="bg-blue-100 text-[#0000ff] px-4 py-3 rounded-md hover:shadow-xl font-semibold  text-base  "

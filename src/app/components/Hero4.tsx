@@ -6,7 +6,7 @@ export default function Hero4() {
 
   
 <div className='flex flex-col justify-center items-center   mt-40  relative  '>
-<span className='absolute text-gray-500 lg:text-[140px] font-bold  opacity-10 text-6xl mx-auto	'>Newsletter</span>
+<span className='absolute text-gray-500 lg:text-[100px] font-bold  opacity-10 text-6xl mx-auto	'>Newsletter</span>
 
 <h1 className='text-4xl font-bold mb-6 text-center'>Subscribe Our Newsletter</h1>
     <div className='text-base py-6 text-center' >Get the latest information and promo offers directly</div>
